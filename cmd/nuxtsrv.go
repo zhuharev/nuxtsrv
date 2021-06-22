@@ -24,7 +24,7 @@ func main() {
 
 	log.Printf("start listen on port=%s dir=%s", port, frontendDir)
 
-	nuxtsrv.RegistreHandlers(e, frontendDir)
+	nuxtsrv.RegisterNuxtHandlers(e, frontendDir)
 
 	e.Start(":" + port)
 }

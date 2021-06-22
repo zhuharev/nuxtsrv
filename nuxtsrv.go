@@ -6,7 +6,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func RegistreHandlers(e *echo.Echo, frontendDir string) {
+func RegisterNuxtHandlers(e *echo.Echo, frontendDir string) {
 	e.Static("/_nuxt", filepath.Join(frontendDir, "_nuxt"))
 
 	var routes = map[string]string{
@@ -22,4 +22,9 @@ func RegistreHandlers(e *echo.Echo, frontendDir string) {
 	for route, fname := range routes {
 		e.File(route, filepath.Join(frontendDir, fname))
 	}
+}
+
+func RegisterStaticHandlers(e *echo.Echo, frontendDir string) {
+	e.Static("/", frontendDir)
+	e.File("/", "index.html")
 }
