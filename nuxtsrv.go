@@ -26,5 +26,5 @@ func RegisterNuxtHandlers(e *echo.Echo, frontendDir string) {
 
 func RegisterStaticHandlers(e *echo.Echo, frontendDir string) {
 	e.Static("/", frontendDir)
-	e.File("/", "index.html")
+	e.File("/*", "index.html")
 }
